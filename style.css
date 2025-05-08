@@ -1,0 +1,27 @@
+body {
+    background-color: rgb(235, 204, 209);
+}
+input, label, textarea{
+   vertical-align: middle; /* Alinea la línea base del texto o el centro vertical */
+   padding: 5px;
+   margin: 10px;
+   color: purple;
+   font-weight: bold;
+}
+
+label {
+    display: inline-block;
+    width: 100px; /* Define un ancho fijo para las etiquetas */
+    margin-right: 10px; /* Añade espacio entre la etiqueta y el input */
+    text-align: right; /* Alinea el texto de la etiqueta a la derecha si lo deseas */
+  }
+.submit {
+    background-color: rgb(188, 28, 228);
+    color: white;
+  }
+
+.submit:hover {
+    background-color: aqua;
+    color: black;
+}
+  
