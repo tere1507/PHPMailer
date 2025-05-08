@@ -6,14 +6,14 @@ require_once '04_enviar_mail.php'; //cargar la funcion de envio
 //confirmar si el formulario que se solicito se envio mediante el metodo de envio post
 if( $_SERVER['REQUEST_METHOD'] === 'POST') {//server - request -contiene el metodo usado y lo compara si es post ejecuta el codigo
     $datos = [#creamos un array asociativo
-        'nombre' => $_POST['nombre'],  #Clave 'nombre', Valor: $_POST['nombre']-->este a la vez contiene el valor de 'nombre' que le usuario relleno
-        'apellido' => $_POST['apellido'],
-        'email' => $_POST['email'],
-        'telefono' => $_POST['telefono'],
-        'observaciones' => $_POST['observaciones']
+        'nombre' => $_POST['nombre'] ?? '',  //Clave 'nombre', Valor: $_POST['nombre']-->este a la vez contiene el valor de 'nombre' que le usuario relleno
+        'apellido' => $_POST['apellido'] ?? '',//usamos ?? '' , para evitar el Undefined array key Warning si algun campo esta ausente en el post
+        'email' => $_POST['email'] ?? '',
+        'telefono' => $_POST['telefono'] ?? '',
+        'observaciones' => $_POST['observaciones'] ?? '',
     ];
 
-    $resultado = enviarCorreo($datos);
+    $resultado = enviarCorreo($datos);//esta es una excelente demostración de abstracción y delegación. 
 
     if($resultado === true) {
         echo "<p style='color:green'>Congratulations, your details have been sent, someone will call you shortly.</p>";
